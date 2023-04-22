@@ -60,7 +60,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 </head>
 <body>
 
-<div class="about_bg">
+<div class="about_bg" style="background-image: url(images/fellowship.PNG);">
 <div class="container">
 <div class="row">
 <div class="col-md-12">
@@ -130,7 +130,7 @@ Pages
 
 
 <div class="login">
-<div class="container">
+<div class="container" >
 <div class="row justify-content-center">
 <div class="col-md-6">
 <div id="login-overlay" class="modal-dialog">
@@ -189,7 +189,7 @@ Pages
 <a href="index.html">
 <img src="images/footer-logo.png" class="img-fluid" alt="footer_logo">
 </a>
-<p>2016 © copyright
+<p>2023 © copyright
 <br> All rights reserved.</p>
 </div>
 </div>
@@ -199,7 +199,7 @@ Pages
 <ul>
 <li><a href="about.html">About</a></li>
 <li><a href="admission-form.html">Admissions </a></li>
-<li><a href="https://demo.web3canvas.com/themeforest/unisco/admission.html">Academics</a></li>
+<li><a href="">Academics</a></li>
 <li><a href="research.html">Research</a></li>
 <li><a href="contact.html">Contact</a></li>
 </ul>
@@ -217,9 +217,9 @@ Pages
 <div class="col-md-3">
 <div class="address">
 <h3>Contact us</h3>
-<p><span>Address: </span> Unisco university Albany, NY, USA. 11001</p>
-<p>Email : <a href="https://demo.web3canvas.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6801060e07281d06011b0b07460b0705">[email&#160;protected]</a>
-<br> Phone : +91 555 668 986</p>
+<p><span>Address: </span> P.O Box 7062, Kampala</p>
+<p>Email : <a href="mailto:kamasaug@gmail.com" class="" data-cfemail="">kamasaug@gmail.com</a>
+<br> Phone : +256707064552</p>
 <ul class="footer-social-icons">
 <li><a href="login.html#"><i class="fa fa-facebook fa-fb" aria-hidden="true"></i></a></li>
 <li><a href="login.html#"><i class="fa fa-linkedin fa-in" aria-hidden="true"></i></a></li>
