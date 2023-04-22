@@ -1,3 +1,41 @@
+<?php
+session_start();
+
+//connect to db
+
+// $db = new mysqli('localhost','root','','kamasa');
+include_once("connect.php");
+
+
+if($_SERVER['REQUEST_METHOD']=='POST'){
+
+    //get the submitted form data
+
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    //getting user from the database
+
+    $stmt = $db->prepare("SELECT * FROM add_user WHERE username = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+    $stmt->close();
+
+    //verify password
+    if(password_verify($password,$user['password'])){
+        //log the user in
+        $_SESSION['username'] = $user['username'];
+        header('location:home.php');
+        //exit();
+
+    }else{
+        //display an error
+        echo '<script> alert(message)</script>';
+    }
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,45 +78,36 @@
 <li class="nav-item">
 <a class="nav-link" href="about.html">About<span class="sr-only">(current)</span></a>
 </li>
-<li class="nav-item">
-<a class="nav-link" href="admission-form.html">Admissions</a>
-</li>
+
 <li class="nav-item">
 <a class="nav-link" href="academics.html">Academics</a>
 </li>
 <li class="nav-logo">
 <a href="index.html" class="navbar-brand"><img src="images/logo.png" class="img-fluid" alt="logo"></a>
 </li>
-<li class="nav-item">
-<a class="nav-link" href="research.html">Research</a>
-</li>
+
 <li class="nav-item dropdown">
 <a class="nav-link dropdown-toggle" href="login.html#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 Pages
 </a>
 <ul class="dropdown-menu">
 <li><a class="dropdown-item" href="index-2.html">Home Style Two</a></li>
-<li><a class="dropdown-item" href="index-video.html">Home Video</a></li>
-<li><a class="dropdown-item" href="blog.html">Blog</a></li>
-<li><a class="dropdown-item" href="blog-post.html">Blog Post</a></li>
-<li><a class="dropdown-item" href="index-landing-page.html">Landing Page</a></li>
+
 <li><a class="dropdown-item" href="events.html">Events</a></li>
-<li><a class="dropdown-item" href="course-detail.html">Course Details</a></li>
+
  <li><a class="dropdown-item" href="campus-life.html">Campus Life</a></li>
-<li><a class="dropdown-item" href="our-teachers.html">Our Teachers</a></li>
-<li><a class="dropdown-item" href="teachers-single.html">Teachers Single</a></li>
+
 <li><a class="dropdown-item" href="gallery.html">Gallery</a></li>
-<li><a class="dropdown-item" href="shortcodes.html">Shortcodes</a></li>
+
 <li class="dropdown">
 <a class="dropdown-item dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="login.html#">Others Pages</a>
 <ul class="dropdown-menu dropdown-menu1">
-<li><a class="dropdown-item" href="notice-board.html">Notice Board</a></li>
+
 <li><a class="dropdown-item" href="chairman-speech.html">Chairman Speech</a></li>
-<li><a class="dropdown-item" href="sample-page.html">Sample Page</a></li>
-<li><a class="dropdown-item" href="faq.html">FAQ</a></li>
-<li><a class="dropdown-item" href="login.html">Login</a></li>
+
+<li><a class="dropdown-item" href="login.php">Login</a></li>
 <li><a class="dropdown-item" href="sign-up.html">Sign Up</a></li>
-<li><a class="dropdown-item" href="coming-soon.html">Coming Soon</a></li>
+
 </ul>
 </li>
 </ul>
@@ -110,7 +139,7 @@ Pages
 <div class="row">
 <div class="col-md-12">
 <div class="well">
-<form id="loginForm" method="POST" action="https://demo.web3canvas.com/login/" novalidate="novalidate">
+<form id="loginForm" method="POST" action="../kick/" novalidate="novalidate">
 <div class="form-group">
 <label for="username" class="control-label">Username</label>
 <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
