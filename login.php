@@ -4,7 +4,7 @@ session_start();
 //connect to db
 
 // $db = new mysqli('localhost','root','','kamasa');
-include_once("connect.php");
+include_once("../kamasa/connect.php");
 
 
 if($_SERVER['REQUEST_METHOD']=='POST'){
@@ -27,7 +27,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     if(password_verify($password,$user['password'])){
         //log the user in
         $_SESSION['username'] = $user['username'];
-        header('location:home.php');
+        header('location:../kamasa/home.php  ');
         //exit();
 
     }else{
@@ -35,14 +35,14 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         echo '<script> alert(message)</script>';
     }
 }
-
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>About - Unisco - Education Website Template for University, College, School</title>
+<title>Login || KAMASA</title>
 
 <script src="../../cdn-cgi/apps/head/OkbNSnEV_PNHTKP2_EYPrFNyZ8Q.js"></script><link rel="stylesheet" href="css/bootstrap.min.css">
 
@@ -106,7 +106,7 @@ Pages
 <li><a class="dropdown-item" href="chairman-speech.html">Chairman Speech</a></li>
 
 <li><a class="dropdown-item" href="login.php">Login</a></li>
-<li><a class="dropdown-item" href="sign-up.html">Sign Up</a></li>
+
 
 </ul>
 </li>
@@ -139,15 +139,15 @@ Pages
 <div class="row">
 <div class="col-md-12">
 <div class="well">
-<form id="loginForm" method="POST" action="../kick/" novalidate="novalidate">
+<form id="loginForm" method="POST" action="" novalidate="novalidate">
 <div class="form-group">
 <label for="username" class="control-label">Username</label>
-<input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
+<input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="Enter username">
 <span class="help-block"></span>
 </div>
 <div class="form-group">
 <label for="password" class="control-label">Password</label>
-<input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your password">
+<input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your password" placeholder="Enter password">
 <span class="help-block"></span>
 </div>
 <div class="checkbox">
