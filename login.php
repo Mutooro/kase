@@ -91,7 +91,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 Pages
 </a>
 <ul class="dropdown-menu">
-<li><a class="dropdown-item" href="index-2.html">Home Style Two</a></li>
+
 
 <li><a class="dropdown-item" href="events.html">Events</a></li>
 
