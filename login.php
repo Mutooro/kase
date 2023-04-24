@@ -139,7 +139,7 @@ Pages
 <div class="row">
 <div class="col-md-12">
 <div class="well">
-<form id="loginForm" method="POST" action="" novalidate="novalidate">
+<form id="loginForm" method="POST" action="" onclick="validateForm()" novalidate="novalidate">
 <div class="form-group">
 <label for="username" class="control-label">Username</label>
 <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="Enter username">
@@ -249,4 +249,15 @@ Pages
 <script src="js/script.js"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vb26e4fa9e5134444860be286fd8771851679335129114" integrity="sha512-M3hN/6cva/SjwrOtyXeUa5IuCT0sedyfT+jK/OV+s+D0RnzrTfwjwJHhd+wYfMm9HJSrZ1IKksOdddLuN6KOzw==" data-cf-beacon='{"rayId":"7adf4c1b7b99d739","version":"2023.3.0","r":1,"b":1,"token":"1a2187940c214caa9d3fed19b4904902","si":100}' crossorigin="anonymous"></script>
 </body>
+<script>
+    function validateForm(){
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        if(username=="" || password==""){
+            alert("Please fill in the blanks");
+            return false;
+        }
+    }
+</script>
 </html>
